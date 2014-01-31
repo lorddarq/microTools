@@ -1,0 +1,64 @@
+*{
+	font-family: sans-serif;
+}
+body{
+	background:#395c71;
+}
+button, select, input
+{
+border:1px solid;
+height:19px;
+border-radius: none;
+}
+
+input[type=text]
+{
+height:16px;
+}
+
+#contentiOS {
+margin-right:auto;
+margin-left:auto;
+vertical-align:middle;
+width:100%;
+}
+
+#contentiOS ul {
+padding:0px;
+}
+
+#contentiOS ul li {
+margin:3px 0px 3px 0px;
+}
+.iOSButton{
+	padding: 5px;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, #828c95 0%,#4c6070 100%);
+	color: #fff;
+}
+p{
+	font-size: 10px;
+	color: rgba(255,255,255,0.5);
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: sans-serif;
+	color: #fff;
+}
+h4{
+	color: rgba(255,255,255, 0.6);
+}
+h5 img{
+	margin-right: 5px;
+}
+h5{
+	padding 2px;
+	background: #1e2f3a;
+	wdith: 100%;
+}
+hr{
+	opacity: 0.3;
+}
+.logo{
+	margin-right: 5px;
+}

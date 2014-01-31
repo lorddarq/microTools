@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExtensionManifest Version="4.0" ExtensionBundleId="com.microtools.MobileExport" ExtensionBundleVersion="1.0.0"
+		ExtensionBundleName="microToolsMobileExport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="com.microtools.MobileExport.extension1" Version="1.0.1" />
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+			<Host Name="PHXS" Version="[14.0,14.9]" />
+			<Host Name="PHSP" Version="[14.0,14.9]" />
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="4.0" />
+
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.microtools.MobileExport.extension1">
+			<DispatchInfo >
+				<Resources>
+				<MainPath>./index.html</MainPath>
+				<ScriptPath>./microToolsMobileExport.jsx</ScriptPath>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Modeless</Type>
+					<Menu>Mobile Export Tools</Menu>
+					<Geometry>
+						<Size>
+							<Height>500</Height>
+							<Width>250</Width>
+						</Size>
+					</Geometry>
+					<Icons>
+						<Icon Type="Normal">./icons/ico_light.png</Icon>
+						<Icon Type="RollOver">./icons/ico_light.png</Icon>
+						<Icon Type="DarkNormal">./icons/ico_dark.png</Icon>
+						<Icon Type="DarkRollOver">./icons/ico_dark.png</Icon>
+					</Icons>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>
