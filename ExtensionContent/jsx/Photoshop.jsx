@@ -388,3 +388,173 @@ $._ext_exportButtonsIOS={
             getButtonsIOS();
     },
 };
+
+$._ext_exportIconsAndroid={
+    run : function() {
+            #target Photoshop
+
+            //Initialize Photoshop & choose what file is processed via openDialog
+            app.bringToFront();
+            var filepath = File.openDialog ();
+            var fileRef = File(filepath);
+            var docRef = app.open(fileRef);
+
+
+            //required Variables
+            var i=0;
+            var sampledColors = new Array();
+            var layerCompStack = new Array();
+            var compNames = new Array();
+            var activeDoc = app.activeDocument;
+
+            var docHeight = app.activeDocument.height;
+            var docWidth = app.activeDocument.width;
+
+
+            //define a function that takes care of exporting found colors automatically;
+            var getIconsAndroid = function(){
+                
+                    //initialize layercomps
+                    var index=0;
+                    var comps = app.activeDocument.layerComps.length;
+                    var layerCompRef;
+                    var layerSetRef = activeDoc.layerSets.getByName("icons");
+                    
+                    
+                    //create the export folders
+                    var exportAndroidIconsFolder = new Folder(Folder.desktop + "/export/Android/icons/");
+                    if(!exportAndroidIconsFolder.exists) exportAndroidIconsFolder.create();
+                    
+                    // add all comps you found into an array to be used as indexes later.
+                    for(i=0;i<comps;i++){
+                        layerCompStack[i] = i;
+                    };
+                
+                    //use the indexes found to get all layercomp names and store them in a new array.
+                    for(index = 0;index <layerCompStack.length;index++){
+                       compNames[layerCompStack[index]] = app.activeDocument.layerComps[layerCompStack[index]].name;
+                    };
+                    
+                    // do the magic & start exporting stuff
+                    for (var key in compNames){
+                        
+                        var val = compNames[key];
+                        var layerCompRef = app.activeDocument.layerComps.getByName(val);
+                        var normalizedReference = layerCompRef.toString();
+                        var child  = layerSetRef.layers.getByName(val);
+                        
+
+                        //apply the layer comp
+                        layerCompRef.apply();
+                        
+                        //after applying the layercomp, copy all layers merged
+                        
+                        child.copy(true);
+                        
+                        //create a new document with the same size as the source and paste the copied information into it.
+                        var newDoc = app.documents.add(docWidth,docHeight,72,normalizedReference.substring(11,normalizedReference.length-1),NewDocumentMode.RGB,DocumentFill.TRANSPARENT);
+                        
+                        //paste the previously copied-merged layer into the new file.
+                        newDoc.paste();
+                        
+                        //save each file into the appropriate folder, then close the tempfile.
+                        app.activeDocument.exportDocument(Folder("C:/Users/sjurcut/Desktop/export/Android/icons/"),ExportType.SAVEFORWEB);
+                        app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                        
+                        //rinse & repeat.
+                    };
+                    
+                    //Save the document and close it. We're being tidy.
+                    app.activeDocument.save();
+                    app.activeDocument.close();
+                    
+                    //alert the user that the export process is completed!
+                    return alert ("Exported all "+layerCompStack.length+" files! Give yourself a pat on the back for a job well done!", "Export");
+                };
+            getIconsAndroid ();
+    },
+};
+
+$._ext_exportBackgroundsAndroid={
+    run : function() {
+            #target Photoshop
+
+            //Initialize Photoshop & choose what file is processed via openDialog
+            app.bringToFront();
+            var filepath = File.openDialog ();
+            var fileRef = File(filepath);
+            var docRef = app.open(fileRef);
+
+
+            //required Variables
+            var i=0;
+            var sampledColors = new Array();
+            var layerCompStack = new Array();
+            var compNames = new Array();
+            var activeDoc = app.activeDocument;
+
+            var docHeight = app.activeDocument.height;
+            var docWidth = app.activeDocument.width;
+
+
+            //define a function that takes care of exporting found colors automatically;
+            var getBackgroundsAndroid = function(){
+                
+                    //initialize layercomps
+                    var index=0;
+                    var comps = app.activeDocument.layerComps.length;
+                    var layerCompRef;
+                    var layerSetRef = activeDoc.layerSets.getByName("base");
+                    var childSet  = layerSetRef.layers.getByName("base");
+                    
+                    //create the export folders
+                    var exportAndroidFolder = new Folder(Folder.desktop + "/export/Android/");
+                    if(!exportAndroidFolder.exists) exportAndroidFolder.create();
+                    
+                    // add all comps you found into an array to be used as indexes later.
+                    for(i=0;i<comps;i++){
+                        layerCompStack[i] = i;
+                    };
+                
+                    //use the indexes found to get all layercomp names and store them in a new array.
+                    for(index = 0;index <layerCompStack.length;index++){
+                       compNames[layerCompStack[index]] = app.activeDocument.layerComps[layerCompStack[index]].name;
+                    };
+                    
+                    // do the magic & start exporting stuff
+                    for (var key in compNames){
+                        
+                        var val = compNames[key];
+                        var layerCompRef = app.activeDocument.layerComps.getByName(val);
+                        var normalizedReference = layerCompRef.toString();
+                        
+
+                        //apply the layer comp
+                        layerCompRef.apply();
+                        
+                        //after applying the layercomp, copy all layers merged
+                        childSet.copy(true);
+                        
+                        //create a new document with the same size as the source and paste the copied information into it.
+                        var newDoc = app.documents.add(docWidth,docHeight,72,normalizedReference.substring(11,normalizedReference.length-1),NewDocumentMode.RGB,DocumentFill.TRANSPARENT);
+                        
+                        //paste the previously copied-merged layer into the new file.
+                        newDoc.paste();
+                        
+                        //save each file into the appropriate folder, then close the tempfile.
+                        app.activeDocument.exportDocument(Folder("C:/Users/sjurcut/Desktop/export/Android/"),ExportType.SAVEFORWEB);
+                        app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+                        
+                        //rinse & repeat.
+                    };
+                    
+                    //Save the document and close it. We're being tidy.
+                    app.activeDocument.save();
+                    app.activeDocument.close();
+                    
+                    //alert the user that the export process is completed!
+                    return alert ("Exported all "+layerCompStack.length+" files! Give yourself a pat on the back for a job well done!", "Export");
+                };
+            getBackgroundsAndroid ();
+    },
+};
