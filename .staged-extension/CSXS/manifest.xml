@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ExtensionManifest Version="4.0" ExtensionBundleId="com.microtools.MobileExport" ExtensionBundleVersion="1.0.0"
-		ExtensionBundleName="microToolsMobileExport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ExtensionManifest Version="4.0" ExtensionBundleId="com.microtools.mobilexport" ExtensionBundleVersion="1.0.4"
+		ExtensionBundleName="mobilexport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.microtools.MobileExport.extension1" Version="1.0.1" />
+		<Extension Id="com.microtools.mobilexport" Version="1.0.1" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
@@ -19,7 +19,7 @@
 		</RequiredRuntimeList>
 	</ExecutionEnvironment>
 	<DispatchInfoList>
-		<Extension Id="com.microtools.MobileExport.extension1">
+		<Extension Id="com.microtools.mobilexport">
 			<DispatchInfo >
 				<Resources>
 				<MainPath>./index.html</MainPath>
@@ -36,6 +36,10 @@
 							<Height>500</Height>
 							<Width>250</Width>
 						</Size>
+						<MaxSize>
+							<Height>500</Height>
+							<Width>500</Width>
+						</MaxSize>
 					</Geometry>
 					<Icons>
 						<Icon Type="Normal">./icons/ico_light.png</Icon>

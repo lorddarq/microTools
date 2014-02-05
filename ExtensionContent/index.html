@@ -13,43 +13,23 @@
 
 <body onLoad="onLoaded()">
 <img src="./icons/logo.png" class="logo"/>
-
-<p>
-	<p1>Usage:</p1>
-	Press desired button to export desired feature. Careful how you structure you PSD file.
-	For examples, go into the examples folder.
-</p>
-<div class="heads"><h5><img src="./icons/icons_16x16_apple.png"/>iOS Tools</h5></div>
-<div id="contentiOS">
-	<ul>
-    <!--<li>
-        	<button class="default" onClick="sendVulcanMessage(document.getElementById('messageText').value)">Send Message</button>
-        </li>-->
-		<li>
-			<button class="iOSButton" onClick="onClickButton('exportIconsIOS')">Export IOS Icons</button>
-		</li>
-		<li>
-			<button class="iOSButton" onClick="onClickButton('exportBackgroundsIOS')">Export IOS Backgrounds</button>
-		</li>
-		<li>
-			<button class="iOSButton" onClick="onClickButton('exportButtonsIOS')">Export IOS Buttons</button>
-		</li>
-  </ul>
+<div class="top">
+	<p>
+		<p1>Usage:</p1>
+		Press desired button to export desired feature. Careful how you structure you PSD file.
+		For examples, go into the examples folder.
+	</p>
 </div>
-  <hr>
-<div class="heads"><h5><img src="./icons/icons_16x16_android.png"/>Android Tools</h5></div>
+<div class="header"><img class="head" src="./icons/icons_16x16_apple.png"/></div>
 <div id="contentiOS">
-	<ul>
-    <!--<li>
-        	<button class="default" onClick="sendVulcanMessage(document.getElementById('messageText').value)">Send Message</button>
-        </li>-->
-		<li>
-			<button class="AndroidButton" onClick="onClickButton('exportIconsAndroid')">Export Android Icons</button>
-		</li>
-		<li>
-			<button class="AndroidButton" onClick="onClickButton('exportBackgroundsAndroid')">Export Android Buttons</button>
-		</li>
-  </ul>
+	<button class="iOSButton" onClick="onClickButton('exportIconsIOS')">Export IOS Icons</button>
+	<button class="iOSButton" onClick="onClickButton('exportBackgroundsIOS')">Export IOS Backgrounds</button>
+	<button class="iOSButton" onClick="onClickButton('exportButtonsIOS')">Export IOS Buttons</button>
+</div>
+<div class="header"><img class="head" src="./icons/icons_16x16_android.png"/></div>
+<div id="contentiOS">
+	<button class="AndroidButton" onClick="onClickButton('exportIconsAndroid')">Export Android Icons</button>
+	<button class="AndroidButton" onClick="onClickButton('exportBackgroundsAndroid')">Export Android Buttons</button>
 </div>
   
 
